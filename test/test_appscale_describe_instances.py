@@ -78,9 +78,9 @@ class TestAppScaleDescribeInstances(unittest.TestCase):
       .and_return('Database is at not-up-yet') \
       .and_return('Database is at 1.2.3.4')
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public2:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public2:18443') \
       .and_return(fake_appcontroller)
 
     # mock out reading the locations.json file, and slip in our own json

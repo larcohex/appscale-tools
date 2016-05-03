@@ -85,7 +85,7 @@ class TestAppScaleResetPassword(unittest.TestCase):
       'boo@foo.goo', str, 'the secret').and_return('true')
 
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
 
     argv = [
@@ -136,7 +136,7 @@ class TestAppScaleResetPassword(unittest.TestCase):
     fake_appcontroller.should_receive('reset_password').with_args(
       'boo@foo.goo', str, 'the secret').and_return('false')
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
 
     argv = [

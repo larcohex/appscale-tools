@@ -703,7 +703,7 @@ class RemoteHelper(object):
     # Copy over the config file that indicates how the AppController should be
     # started up.
     cls.scp(host, keyname, cls.MONIT_APPCONTROLLER_CONFIG_FILE,
-      '/etc/monit/conf.d/appscale-controller-17443.cfg', is_verbose)
+      '/etc/monit/conf.d/appscale-controller-18443.cfg', is_verbose)
 
     # Start up monit.
     cls.ssh(host, keyname, 'monit quit; ', is_verbose)

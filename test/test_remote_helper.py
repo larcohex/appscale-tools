@@ -436,7 +436,7 @@ class TestRemoteHelper(unittest.TestCase):
 
     # also assume that we scp'ed over the god config file fine
     local_state.should_receive('shell')\
-      .with_args(re.compile('scp .*controller-17443.cfg*'),False,5)\
+      .with_args(re.compile('scp .*controller-18443.cfg*'),False,5)\
       .and_return()
 
     # and assume we started the AppController on public1 fine
@@ -524,7 +524,7 @@ class TestRemoteHelper(unittest.TestCase):
     fake_appcontroller.should_receive('create_user').with_args('boo@public1', str,
       'xmpp_user', 'the secret').and_return('true')
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
     RemoteHelper.create_user_accounts('boo@foo.goo', 'password', 'public1',
       'bookey', False)
@@ -566,9 +566,9 @@ class TestRemoteHelper(unittest.TestCase):
       .and_return(False).and_return(True)
 
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_soap)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public2:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public2:18443') \
       .and_return(fake_soap)
 
     RemoteHelper.wait_for_machines_to_finish_loading('public1', 'bookey')

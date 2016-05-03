@@ -336,7 +336,7 @@ class TestAppScaleUploadApp(unittest.TestCase):
     fake_appcontroller.should_receive('get_all_stats').with_args(
       'the secret').and_return(json.dumps(app_stats_data))
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
 
     # mock out reading the locations.json file, and slip in our own json
@@ -446,7 +446,7 @@ class TestAppScaleUploadApp(unittest.TestCase):
     fake_appcontroller.should_receive('get_app_data').with_args(
       'baz', 'the secret').and_return(json.dumps(app_data_not_admin))
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
 
     # mock out reading the locations.json file, and slip in our own json
@@ -531,7 +531,7 @@ class TestAppScaleUploadApp(unittest.TestCase):
     fake_appcontroller.should_receive('get_all_stats').with_args(
       'the secret').and_return(json.dumps(app_stats_data))
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
 
     # mock out reading the locations.json file, and slip in our own json
@@ -649,7 +649,7 @@ class TestAppScaleUploadApp(unittest.TestCase):
     fake_appcontroller.should_receive('reserve_app_id').with_args(
       'a@a.com','baz','python27','the secret').and_return("true")
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
 
     # mock out reading the locations.json file, and slip in our own json
@@ -781,7 +781,7 @@ class TestAppScaleUploadApp(unittest.TestCase):
     fake_appcontroller.should_receive('get_all_stats').with_args(
       'the secret').and_return(json.dumps(app_stats_data))
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
 
     # mock out reading the locations.json file, and slip in our own json
@@ -913,7 +913,7 @@ class TestAppScaleUploadApp(unittest.TestCase):
     fake_appcontroller.should_receive('get_all_stats').with_args(
       'the secret').and_return(json.dumps(app_stats_data))
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
 
     # mock out reading the locations.json file, and slip in our own json

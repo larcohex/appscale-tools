@@ -158,7 +158,7 @@ class TestAppScaleTerminateInstances(unittest.TestCase):
       .and_return(json.dumps(['public1', 'public2']))
 
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
       .and_return(fake_appcontroller)
 
     # and mock out the ssh call to kill the remote appcontroller, assuming that
