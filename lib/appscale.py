@@ -55,7 +55,7 @@ class AppScale():
 
 
   # This is the command to terminate a deployment.
-  TERMINATE = "ruby /root/appscale/AppController/terminate.rb clean"
+  TERMINATE = "ruby /var/lib/appscale/AppController/terminate.rb clean"
 
 
   # The usage that should be displayed to users if they call 'appscale'

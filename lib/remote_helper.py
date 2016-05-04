@@ -593,7 +593,7 @@ class RemoteHelper(object):
     LocalState.shell("rsync -e 'ssh -i {0} {1}' -arv "
       "--exclude='AppDB/logs/*' " \
       "--exclude='AppDB/cassandra/cassandra/*' " \
-      "{2}/* root@{3}:/root/appscale/".format(ssh_key, cls.SSH_OPTIONS,
+      "{2}/* root@{3}:/var/lib/appscale/".format(ssh_key, cls.SSH_OPTIONS,
       local_path, host), is_verbose)
 
   @classmethod
@@ -703,7 +703,7 @@ class RemoteHelper(object):
     # Copy over the config file that indicates how the AppController should be
     # started up.
     cls.scp(host, keyname, cls.MONIT_APPCONTROLLER_CONFIG_FILE,
-      '/etc/monit/conf.d/appscale-controller-18443.cfg', is_verbose)
+      '/etc/monit/conf.d/appscale-controller-17443.cfg', is_verbose)
 
     # Start up monit.
     cls.ssh(host, keyname, 'monit quit; ', is_verbose)
@@ -969,7 +969,7 @@ class RemoteHelper(object):
       is_verbose: A bool that indicates if we should print the stop commands we
         exec to stdout.
     """
-    cls.ssh(host, keyname, 'ruby /root/appscale/AppController/terminate.rb',
+    cls.ssh(host, keyname, 'ruby /var/lib/appscale/AppController/terminate.rb',
       is_verbose)
 
 

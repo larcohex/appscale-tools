@@ -75,7 +75,7 @@ class TestAppScaleRemoveApp(unittest.TestCase):
     fake_appcontroller.should_receive('does_app_exist').with_args('blargapp',
       'the secret').and_return(False)
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
       .and_return(fake_appcontroller)
 
     # mock out reading the locations.json file, and slip in our own json
@@ -128,7 +128,7 @@ class TestAppScaleRemoveApp(unittest.TestCase):
     fake_appcontroller.should_receive('does_app_exist').with_args('blargapp',
       'the secret').and_return(True)
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
       .and_return(fake_appcontroller)
 
     # mock out reading the locations.json file, and slip in our own json

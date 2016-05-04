@@ -629,28 +629,27 @@ class AppScaleTools(object):
     # through them for the http port the app can be reached on.
     sleep_time = 2 * cls.SLEEP_TIME
     current_app = None
-#    for i in range(cls.MAX_RETRIES):
-#      try:
-#        result = acc.get_all_stats()
-#        json_result = json.loads(result)
-#        apps_result = json_result['apps']
-#        current_app = apps_result[app_id]
-#        http_port = current_app['http']
-#        break
-#      except ValueError:
-#        pass
-#      except KeyError:
-#        pass
-#      AppScaleLogger.verbose("Waiting {0} second(s) for a port to be assigned to {1}".\
-#        format(sleep_time, app_id), options.verbose)
-#      time.sleep(sleep_time)
-#    if not current_app:
-#      raise AppScaleException("Unable to get the serving port for the application.")
+    for i in range(cls.MAX_RETRIES):
+      try:
+        result = acc.get_all_stats()
+        json_result = json.loads(result)
+        apps_result = json_result['apps']
+        current_app = apps_result[app_id]
+        http_port = current_app['http']
+        break
+      except ValueError:
+        pass
+      except KeyError:
+        pass
+      AppScaleLogger.verbose("Waiting {0} second(s) for a port to be assigned to {1}".\
+        format(sleep_time, app_id), options.verbose)
+      time.sleep(sleep_time)
+    if not current_app:
+      raise AppScaleException("Unable to get the serving port for the application.")
 
-#    RemoteHelper.sleep_until_port_is_open(login_host, http_port, options.verbose)
-#    AppScaleLogger.success("Your app can be reached at the following URL: " +
-#      "http://{0}:{1}".format(login_host, http_port))
-    AppScaleLogger.success("Your app was successfully installed.")
+    RemoteHelper.sleep_until_port_is_open(login_host, http_port, options.verbose)
+    AppScaleLogger.success("Your app can be reached at the following URL: " +
+      "http://{0}:{1}".format(login_host, http_port))
     if created_dir:
       shutil.rmtree(file_location)
 

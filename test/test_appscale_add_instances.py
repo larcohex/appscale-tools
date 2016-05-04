@@ -158,7 +158,7 @@ appengine: 1.2.3.4
     fake_appcontroller.should_receive('start_roles_on_nodes') \
       .with_args(json_node_info, 'the secret').and_return('OK')
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
       .and_return(fake_appcontroller)
 
     argv = [

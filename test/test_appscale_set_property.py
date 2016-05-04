@@ -77,7 +77,7 @@ class TestAppScaleSetProperty(unittest.TestCase):
       property_value, 'the secret').and_return('OK')
 
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
       .and_return(fake_appcontroller)
 
     argv = [

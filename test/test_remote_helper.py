@@ -436,7 +436,7 @@ class TestRemoteHelper(unittest.TestCase):
 
     # also assume that we scp'ed over the god config file fine
     local_state.should_receive('shell')\
-      .with_args(re.compile('scp .*controller-18443.cfg*'),False,5)\
+      .with_args(re.compile('scp .*controller-17443.cfg*'),False,5)\
       .and_return()
 
     # and assume we started the AppController on public1 fine
@@ -454,7 +454,7 @@ class TestRemoteHelper(unittest.TestCase):
     socket.should_receive('socket').and_return(fake_socket)
 
     # Mock out additional remote calls. 
-    local_state.should_receive('shell').with_args('ssh -i /root/.appscale/bookey.key -o LogLevel=quiet -o NumberOfPasswordPrompts=0 -o StrictHostkeyChecking=no -o UserKnownHostsFile=/dev/null root@public1 ', False, 5, stdin='cp /root/appscale/AppController/scripts/appcontroller /etc/init.d/').and_return()
+    local_state.should_receive('shell').with_args('ssh -i /root/.appscale/bookey.key -o LogLevel=quiet -o NumberOfPasswordPrompts=0 -o StrictHostkeyChecking=no -o UserKnownHostsFile=/dev/null root@public1 ', False, 5, stdin='cp /var/lib/appscale/AppController/scripts/appcontroller /etc/init.d/').and_return()
 
     local_state.should_receive('shell').with_args('ssh -i /root/.appscale/bookey.key -o LogLevel=quiet -o NumberOfPasswordPrompts=0 -o StrictHostkeyChecking=no -o UserKnownHostsFile=/dev/null root@public1 ', False, 5, stdin='chmod +x /etc/init.d/appcontroller').and_return()
 
@@ -524,7 +524,7 @@ class TestRemoteHelper(unittest.TestCase):
     fake_appcontroller.should_receive('create_user').with_args('boo@public1', str,
       'xmpp_user', 'the secret').and_return('true')
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
       .and_return(fake_appcontroller)
     RemoteHelper.create_user_accounts('boo@foo.goo', 'password', 'public1',
       'bookey', False)
@@ -566,9 +566,9 @@ class TestRemoteHelper(unittest.TestCase):
       .and_return(False).and_return(True)
 
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
       .and_return(fake_soap)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public2:18443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public2:17443') \
       .and_return(fake_soap)
 
     RemoteHelper.wait_for_machines_to_finish_loading('public1', 'bookey')

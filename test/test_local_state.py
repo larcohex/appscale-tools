@@ -175,7 +175,7 @@ class TestLocalState(unittest.TestCase):
     fake_soap.should_receive('get_role_info').with_args('the secret') \
       .and_return(json.dumps(role_info))
     flexmock(SOAPpy)
-    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:18443') \
+    SOAPpy.should_receive('SOAPProxy').with_args('https://public1:17443') \
       .and_return(fake_soap)
 
     # mock out reading the secret key

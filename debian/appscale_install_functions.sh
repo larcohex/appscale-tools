@@ -9,7 +9,7 @@
 set -e
 
 if [ -z "$APPSCALE_TOOLS_HOME" ]; then
-    export APPSCALE_TOOLS_HOME=/root/appscale
+    export APPSCALE_TOOLS_HOME=/var/lib/appscale
 fi
 
 pip_wrapper () 

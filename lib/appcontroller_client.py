@@ -35,7 +35,7 @@ class AppControllerClient():
 
 
   # The port that the AppController runs on by default.
-  PORT = 18443
+  PORT = 17443
 
 
   # The number of seconds we should wait for when waiting for the UserAppServer
