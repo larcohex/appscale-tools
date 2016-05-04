@@ -22,7 +22,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # copy tools files
-TARGETDIR=/usr/local/appscale-tools
+TARGETDIR=/var/lib/appscale-tools
 mkdir -p $TARGETDIR
 cp -rv bin lib templates $TARGETDIR || exit 1
 cp -v LICENSE README.md $TARGETDIR || exit 1

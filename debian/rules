@@ -50,9 +50,9 @@ install: build
 	dh_installdirs
 	# Add here commands to install the package into debian/appscale.
 #	$(MAKE) DESTDIR=$(CURDIR)/debian/appscale install
-	mkdir -p $(DESTDIR)/usr/local/appscale-tools
-	cp -r bin lib templates $(DESTDIR)/usr/local/appscale-tools
-	cp LICENSE README.md $(DESTDIR)/usr/local/appscale-tools
+	mkdir -p $(DESTDIR)/var/lib/appscale-tools
+	cp -r bin lib templates $(DESTDIR)/var/lib/appscale-tools
+	cp LICENSE README.md $(DESTDIR)/var/lib/appscale-tools
 	bash $(CURDIR)/debian/appscale_install_$(DIST).sh tools $(DESTDIR)
 
 # Build architecture-independent files here.
